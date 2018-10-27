@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load pagination %}
+
+{% block tittle %} Lista de Produtos | {{ block.super }} {% endblock %}
+
+{% block pagina %}
+<div class="page-header">
+    <h1>Produtos</h1>
+</div>
+<div class="row">
+    {% for produto in lista_produtos %}
+    {% include "catalogo_produto.html" %}
+    {% endfor %}
+</div>
+
+{% pagination request paginator page_obj %}
+{% endblock %}
